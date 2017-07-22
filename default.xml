@@ -2,11 +2,10 @@
 <manifest>
 
   <remote  name="github"
-           fetch=".."
-           review="review.lineageos.org" />
+           fetch="https://github.com" />
 
-  <remote  name="private"
-           fetch="ssh://git@github.com" />
+  <remote  name="darkrom"
+           fetch="https://github.com/darkeyes84" />
 
   <remote  name="aosp"
            fetch="https://android.googlesource.com"
@@ -18,11 +17,30 @@
            sync-c="true"
            sync-j="4" />
 
-  <!-- AOSP Projects -->
+  <!-- DARK Repos -->
 
-  <project path="build" name="LineageOS/android_build" groups="pdk">
+  <project path="build" name="android_build" remote="darkrom" revision="darkrom" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
+  <project path="android" name="android" remote="darkrom" revision="darkrom" />
+  <project path="external/chromium-webview" name="android_external_chromium-webview" remote="darkrom" revision="darkrom" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="darkrom" revision="darkrom" />
+  <project path="frameworks/native" name="android_frameworks_native" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/CMParts" name="android_packages_apps_CMParts" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/ContactsCommon" name="android_packages_apps_ContactsCommon" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/interfacer" name="substratum/interfacer" remote="github" revision="n-rootless" />
+  <project path="packages/apps/OmniStyle" name="android_packages_apps_OmniStyle" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/OpenDelta" name="android_packages_apps_OpenDelta" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/PackageInstaller" name="android_packages_apps_PackageInstaller" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/PhoneCommon" name="android_packages_apps_PhoneCommon" remote="darkrom" revision="darkrom" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="darkrom" revision="darkrom" />
+  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="darkrom" revision="darkrom" />
+  <project path="system/sepolicy" name="android_system_sepolicy" groups="pdk" />
+  <project path="vendor/cm" name="android_vendor_cm" remote="darkrom" revision="darkrom" />
+  <project path="vendor/cmsdk" name="android_vendor_cmsdk" remote="darkrom" revision="darkrom" />
+
+  <!-- AOSP Projects -->
+
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" remote="aosp" />
   <project path="build/kati" name="LineageOS/android_build_kati" groups="pdk,tradefed" />
   <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" remote="aosp" >
@@ -79,7 +97,6 @@
   <project path="external/ceres-solver" name="platform/external/ceres-solver" groups="pdk" remote="aosp" />
   <project path="external/chromium-libpac" name="platform/external/chromium-libpac" groups="pdk" remote="aosp" />
   <project path="external/chromium-trace" name="platform/external/chromium-trace" groups="pdk" remote="aosp" />
-  <project path="external/chromium-webview" name="LineageOS/android_external_chromium-webview" groups="pdk" clone-depth="1" />
   <project path="external/clang" name="platform/external/clang" groups="pdk" remote="aosp" />
   <project path="external/cmockery" name="platform/external/cmockery" groups="pdk" remote="aosp" />
   <project path="external/compiler-rt" name="platform/external/compiler-rt" groups="pdk" remote="aosp" />
@@ -306,7 +323,6 @@
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk" remote="aosp" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk" remote="aosp" />
   <project path="frameworks/av" name="LineageOS/android_frameworks_av" groups="pdk" />
-  <project path="frameworks/base" name="LineageOS/android_frameworks_base" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" remote="aosp" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" remote="aosp" />
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" remote="aosp" />
@@ -314,7 +330,6 @@
   <project path="frameworks/minikin" name="LineageOS/android_frameworks_minikin" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/ml" name="platform/frameworks/ml" groups="pdk-cw-fs,pdk-fs" remote="aosp" />
   <project path="frameworks/multidex" name="platform/frameworks/multidex" groups="pdk-cw-fs,pdk-fs" remote="aosp" />
-  <project path="frameworks/native" name="LineageOS/android_frameworks_native" groups="pdk" />
   <project path="frameworks/opt/bitmap" name="platform/frameworks/opt/bitmap" groups="pdk-fs" remote="aosp" />
   <project path="frameworks/opt/bluetooth" name="platform/frameworks/opt/bluetooth" groups="pdk-cw-fs,pdk-fs" remote="aosp" />
   <project path="frameworks/opt/calendar" name="platform/frameworks/opt/calendar" groups="pdk-cw-fs,pdk-fs" remote="aosp" />
@@ -384,7 +399,6 @@
   <project path="packages/apps/CellBroadcastReceiver" name="LineageOS/android_packages_apps_CellBroadcastReceiver" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/CertInstaller" name="LineageOS/android_packages_apps_CertInstaller" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/Contacts" name="LineageOS/android_packages_apps_Contacts" groups="pdk-fs" />
-  <project path="packages/apps/ContactsCommon" name="LineageOS/android_packages_apps_ContactsCommon" groups="pdk-fs" />
   <project path="packages/apps/DeskClock" name="LineageOS/android_packages_apps_DeskClock" groups="pdk-fs" />
   <project path="packages/apps/Dialer" name="LineageOS/android_packages_apps_Dialer" groups="pdk-fs" />
   <project path="packages/apps/Email" name="LineageOS/android_packages_apps_Email" groups="pdk-fs" />
@@ -397,12 +411,9 @@
   <project path="packages/apps/Messaging" name="LineageOS/android_packages_apps_Messaging" groups="pdk-fs" />
   <project path="packages/apps/Nfc" name="LineageOS/android_packages_apps_Nfc" groups="apps_nfc,pdk-fs" />
   <project path="packages/apps/OneTimeInitializer" name="platform/packages/apps/OneTimeInitializer" groups="pdk-fs" remote="aosp" />
-  <project path="packages/apps/PackageInstaller" name="LineageOS/android_packages_apps_PackageInstaller" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/apps/PhoneCommon" name="LineageOS/android_packages_apps_PhoneCommon" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/Provision" name="platform/packages/apps/Provision" groups="pdk-fs" remote="aosp" />
   <project path="packages/apps/RetailDemo" name="platform/packages/apps/RetailDemo" groups="pdk-fs" remote="aosp" />
   <project path="packages/apps/SafetyRegulatoryInfo" name="LineageOS/android_packages_apps_SafetyRegulatoryInfo" />
-  <project path="packages/apps/Settings" name="LineageOS/android_packages_apps_Settings" groups="pdk-fs" />
   <project path="packages/apps/Stk" name="LineageOS/android_packages_apps_Stk" groups="apps_stk,pdk-fs" />
   <project path="packages/apps/StorageManager" name="LineageOS/android_packages_apps_StorageManager" groups="pdk-fs" />
   <project path="packages/apps/Tag" name="LineageOS/android_packages_apps_Tag" groups="pdk-fs" />
@@ -430,7 +441,6 @@
   <project path="packages/screensavers/WebView" name="LineageOS/android_packages_screensavers_WebView" groups="pdk-fs" />
   <project path="packages/services/Car" name="LineageOS/android_packages_services_Car" groups="adp8064,pdk-cw-fs,pdk-fs" />
   <project path="packages/services/Mms" name="LineageOS/android_packages_services_Mms" groups="pdk-cw-fs,pdk-fs" />
-  <project path="packages/services/Telecomm" name="LineageOS/android_packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/Telephony" name="LineageOS/android_packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/wallpapers/LivePicker" name="LineageOS/android_packages_wallpapers_LivePicker" groups="pdk-fs" />
   <project path="pdk" name="platform/pdk" groups="pdk" remote="aosp" />
@@ -488,7 +498,6 @@
   <project path="system/netd" name="LineageOS/android_system_netd" groups="pdk" />
   <project path="system/nvram" name="platform/system/nvram" remote="aosp" />
   <project path="system/security" name="LineageOS/android_system_security" groups="pdk" />
-  <project path="system/sepolicy" name="LineageOS/android_system_sepolicy" groups="pdk" />
   <project path="system/tools/aidl" name="LineageOS/android_system_tools_aidl" groups="pdk" />
   <project path="system/tpm" name="platform/system/tpm" remote="aosp" />
   <project path="system/update_engine" name="platform/system/update_engine" groups="pdk" remote="aosp" />

@@ -36,7 +36,7 @@
   <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="darkrom" revision="darkrom" />
   <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="darkrom" revision="darkrom" />
   <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="darkrom" revision="darkrom" />
-  <project path="system/sepolicy" name="android_system_sepolicy" groups="pdk" />
+  <project path="system/sepolicy" name="android_system_sepolicy" remote="darkrom" revision="darkrom" />
   <project path="vendor/cm" name="android_vendor_cm" remote="darkrom" revision="darkrom" />
   <project path="vendor/cmsdk" name="android_vendor_cmsdk" remote="darkrom" revision="darkrom" />
 
